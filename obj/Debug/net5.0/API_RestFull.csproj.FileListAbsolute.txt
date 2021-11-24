@@ -94,6 +94,7 @@ C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\static
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\staticwebassets\API_RestFull.StaticWebAssets.xml
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\scopedcss\bundle\API_RestFull.styles.css
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.RazorTargetAssemblyInfo.cache
+C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.csproj.CopyComplete
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.dll
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\ref\API_RestFull.dll
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.pdb
