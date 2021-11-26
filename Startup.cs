@@ -12,6 +12,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using API_RestFull.Repository.Generic;
 
 namespace API_Calculadora
 {
@@ -50,6 +51,8 @@ namespace API_Calculadora
             services.AddApiVersioning();
 
             services.AddScoped<IPersonService, PersonService>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
         }
 

@@ -2,6 +2,7 @@
 using API_Calculadora.Exceptions;
 using API_Calculadora.Model;
 using API_Calculadora.Service.Interface;
+using API_RestFull.Repository.Generic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,86 +12,35 @@ namespace API_Calculadora.Service
 {
     public class PersonService : IPersonService
     {
-        private MySQLContext _context;
+        private readonly IRepository<Person> _repository;
 
-        public PersonService(MySQLContext context)
+        public PersonService(IRepository<Person> repository)
         {
-            _context = context;
+         _repository = repository;
         }
         public Person Create(Person person)
         {
-            try
-            {
-                _context.Add(person);
-                _context.SaveChanges();
-            }
-            catch (_Exceptions e)
-            {
-                throw new _Exceptions("Erro ao criar" + e.Message);
-            }
-            return person;
+            return _repository.Create(person);
         }
 
         public void Delete(int id)
         {
-            var atualizacao = _context.Persons.SingleOrDefault(p => p.Id.Equals(id));
-            if (atualizacao != null)
-                try
-            {
-                _context.Remove(atualizacao.Id);
-                _context.SaveChanges();
-            }
-            catch (_Exceptions e)
-            {
-                throw new _Exceptions("Erro ao deletar" + e.Message);
-            }
+            _repository.Delete(id);
         }
 
         public List<Person> FindAll()
         {
-            return _context.Persons.ToList();
+            return _repository.FindAll();
 
         }
         public Person FindByID(int id)
         {
-            try
-            {
-                return _context.Persons.SingleOrDefault(p => p.Id.Equals(id));
-            }
-            catch (_Exceptions e)
-            {
-                throw new _Exceptions("Erro ao procurar usuario" + e.Message);
-            }
+            return _repository.FindByID(id);
         }
 
         public Person Update(Person person)
         {
-            var atualizacao = _context.Persons.SingleOrDefault(p => p.Id.Equals(person.Id));
-            if (atualizacao != null)
-                try
-                {
-                    _context.Entry(atualizacao).CurrentValues.SetValues(person);
-                    _context.SaveChanges();
-                //if (!ValidaPerson(person.Id))
-                //{
-                //    _context.Update(person);
-                //    _context.SaveChanges();
-            }
-            catch (_Exceptions e)
-            {
-                throw new _Exceptions("Erro ao atualizar" + e.Message);
-            }
-            return person;
-        }
-
-        public bool ValidaPerson(int id)
-        {
-            bool validacao = _context.Persons.Any(p => p.Id.Equals(id));
-            if (validacao == true)
-            {
-                return true;
-            }
-            return false;
+            return _repository.Update(person);
         }
     }
 }
