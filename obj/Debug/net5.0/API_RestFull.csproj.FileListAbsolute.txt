@@ -83,7 +83,6 @@ C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\bin\Debug\net5.0\Serilo
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.csproj.AssemblyReference.cache
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.AssemblyInfoInputs.cache
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.AssemblyInfo.cs
@@ -98,3 +97,6 @@ C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_Re
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\ref\API_RestFull.dll
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.pdb
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.genruntimeconfig.cache
+C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.csproj.AssemblyReference.cache
+C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.csproj.CopyComplete

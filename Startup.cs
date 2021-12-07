@@ -1,20 +1,20 @@
-using API_Calculadora.Data;
-using API_Calculadora.Service;
-using API_Calculadora.Service.Interface;
+using API_RestFull.Service.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System;
 using System.Collections.Generic;
 using API_RestFull.Repository.Generic;
+using API_RestFull.DB;
+using API_RestFull.Service;
+using System.Net.Http.Headers;
 
-namespace API_Calculadora
+namespace API_RestFull
 {
     public class Startup
     {
@@ -47,6 +47,14 @@ namespace API_Calculadora
             {
                 MigrateDatabase(connection);
             }
+
+            services.AddMvc
+                (options =>
+                {
+                    options.RespectBrowserAcceptHeader = true;
+                    options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml").ToString());
+                    options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json").ToString());
+                }).AddXmlSerializerFormatters();
 
             services.AddApiVersioning();
 

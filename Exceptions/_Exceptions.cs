@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API_Calculadora.Exceptions
+namespace API_RestFull.Exceptions
 {
     public class _Exceptions :Exception
     {

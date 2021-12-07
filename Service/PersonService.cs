@@ -1,46 +1,65 @@
-﻿using API_Calculadora.Data;
-using API_Calculadora.Exceptions;
-using API_Calculadora.Model;
-using API_Calculadora.Service.Interface;
+﻿using API_RestFull.Data.Converter.Implementation;
+using API_RestFull.Data.VO;
+using API_RestFull.Model;
 using API_RestFull.Repository.Generic;
-using System;
+using API_RestFull.Service.Interface;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace API_Calculadora.Service
+namespace API_RestFull.Service
 {
     public class PersonService : IPersonService
     {
         private readonly IRepository<Person> _repository;
+        private readonly PersonConverter _converter;
 
         public PersonService(IRepository<Person> repository)
         {
-         _repository = repository;
+            _repository = repository;
+            _converter = new PersonConverter();
         }
-        public Person Create(Person person)
+        public PersonVO Create(PersonVO person)
         {
-            return _repository.Create(person);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Create(personEntity);
+            return _converter.Parse(personEntity);
         }
 
+        public PersonVO Update(PersonVO person)
+        {
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Update(personEntity);
+            return _converter.Parse(personEntity);
+        }
         public void Delete(int id)
         {
             _repository.Delete(id);
         }
 
-        public List<Person> FindAll()
+        public List<PersonVO> FindAll()
         {
-            return _repository.FindAll();
+            return _converter.Parse(_repository.FindAll());
 
         }
-        public Person FindByID(int id)
+        public PersonVO FindByID(int id)
         {
-            return _repository.FindByID(id);
+            return _converter.Parse(_repository.FindByID(id));
         }
 
-        public Person Update(Person person)
+        /*public async Task<Colaborador> ExistsByCpfAsync(string colaboradorCpf)
         {
-            return _repository.Update(person);
+            try
+            {
+                string sql = $"{baseSql} AND cpf = @Cpf";
+
+                var colaboradors = await _dbConnector.QueryAsync<Colaborador>(sql, new { Cpf = colaboradorCpf });
+
+                return colaboradors.FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
+        */
     }
 }

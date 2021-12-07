@@ -1,5 +1,6 @@
-﻿using API_Calculadora.Model;
-using API_Calculadora.Service.Interface;
+﻿using API_RestFull.Data.VO;
+using API_RestFull.Model;
+using API_RestFull.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -31,7 +32,7 @@ namespace API_Calculadora.Controllers
         public IActionResult Get(int Id)
         {
             var person = _personService.FindByID(Id);
-                if (person != null)
+            if (person != null)
             {
                 return Ok(person);
             }
@@ -40,9 +41,9 @@ namespace API_Calculadora.Controllers
 
         //Create
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonVO person)
         {
-            if(person == null)
+            if (person == null)
             {
                 return NotFound();
             }
@@ -50,7 +51,7 @@ namespace API_Calculadora.Controllers
         }
         //Update
         [HttpPut]
-        public IActionResult Put([FromBody] Person person)
+        public IActionResult Put([FromBody] PersonVO person)
         {
             if (person == null)
             {
@@ -62,12 +63,8 @@ namespace API_Calculadora.Controllers
         [HttpDelete("{Id}")]
         public IActionResult Delete(int id)
         {
-            var person = _personService.FindByID(id);
-            if (person.Id == id)
-            {
                 _personService.Delete(id);
-            }
-            return BadRequest("Id inválido");
+                return NoContent();
         }
     }
 }

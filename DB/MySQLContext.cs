@@ -1,7 +1,12 @@
-﻿using API_Calculadora.Model;
+﻿
+using API_RestFull.Model;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace API_Calculadora.Data
+namespace API_RestFull.DB
 {
     public class MySQLContext : DbContext
     {

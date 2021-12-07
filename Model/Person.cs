@@ -1,11 +1,7 @@
-﻿using API_RestFull.Model.BaseEntity;
-using System;
-using System.Collections.Generic;
+﻿using API_RestFull.Model.Base;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace API_Calculadora.Model
+namespace API_RestFull.Model
 {
     [Table("pessoas")]
     public class Person : BaseEntity

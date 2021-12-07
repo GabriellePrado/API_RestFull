@@ -1,10 +1,10 @@
-﻿using API_Calculadora.Data;
-using API_Calculadora.Exceptions;
-using API_RestFull.Model.BaseEntity;
+﻿using API_RestFull.Exceptions;
+using API_RestFull.DB;
+using API_RestFull.Model;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using API_RestFull.Model.Base;
 
 namespace API_RestFull.Repository.Generic
 {
@@ -40,7 +40,7 @@ namespace API_RestFull.Repository.Generic
             if (atualizacao != null)
                 try
                 {
-                    _context.Remove(atualizacao.Id);
+                    _context.Remove(atualizacao);
                     _context.SaveChanges();
                 }
                 catch (_Exceptions e)

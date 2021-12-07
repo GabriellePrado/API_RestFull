@@ -1,4 +1,5 @@
-﻿using API_RestFull.Model.BaseEntity;
+﻿using API_RestFull.Model;
+using API_RestFull.Model.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
