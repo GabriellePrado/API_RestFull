@@ -1,4 +1,4 @@
-]
+
 using API_RestFull.Service.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +14,8 @@ using API_RestFull.Repository.Generic;
 using API_RestFull.DB;
 using API_RestFull.Service;
 using System.Net.Http.Headers;
+using Microsoft.Data.SqlClient;
+using System.Net;
 
 namespace API_RestFull
 {
@@ -41,13 +43,25 @@ namespace API_RestFull
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_RestFull", Version = "v1" });
             });
 
-            var connection = Configuration["MySQLConnection:MySQLConnectionString"];
-            services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
+            //var connection = Configuration["MySQLConnection:MySQLConnectionString"];
+            //services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
 
-            if (Environment.IsDevelopment())
-            {
-                MigrateDatabase(connection);
-            }
+            
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<ConexaoSql>(
+                options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                });
+
+
+
+            //if (Environment.IsDevelopment())
+            //{
+               
+            //    MigrateDatabase(connectionString);
+            //}
 
             services.AddMvc
                 (options =>
@@ -91,8 +105,12 @@ namespace API_RestFull
         {
             try
             {
+                // Ignorar a validação do certificado SSL
+                //ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+                ServicePointManager.ServerCertificateValidationCallback = null;
+
                 //cria a conexão
-                var evolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
+                var evolveConnection = new SqlConnection(connection);
                 //inicializa o evolve
                 var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
                 {

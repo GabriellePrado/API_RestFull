@@ -10,11 +10,11 @@ namespace API_RestFull.Repository.Generic
 {
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private MySQLContext _context;
+        private ConexaoSql _context;
 
         private DbSet<T> dataset;
 
-        public GenericRepository(MySQLContext context)
+        public GenericRepository(ConexaoSql context)
         {
             _context = context;
             dataset = _context.Set<T>();

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace API_RestFull.DB
 {
-    public class MySQLContext : DbContext
+    public class ConexaoMySql : DbContext
     {
-        public MySQLContext()
+        public ConexaoMySql()
         {
         }
-        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options)
+        public ConexaoMySql(DbContextOptions<ConexaoMySql> options) : base(options)
         {
         }
         public DbSet<Person> Persons { get; set; }
