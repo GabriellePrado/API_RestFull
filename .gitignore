@@ -23,6 +23,8 @@
 /v17/
 /ProjectEvaluation/
 obj/Debug/net5.0/
+obj/
+FileContentIndex/
 
 # Pacotes NuGet
 /packages/
