@@ -100,3 +100,13 @@ C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_Re
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.csproj.AssemblyReference.cache
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\anton\Repositorio\Curso -FullStack\API_RestFull\obj\Debug\net5.0\API_RestFull.csproj.CopyComplete
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\API_RestFull.csproj.AssemblyReference.cache
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\API_RestFull.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\API_RestFull.AssemblyInfoInputs.cache
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\API_RestFull.AssemblyInfo.cs
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\API_RestFull.csproj.CoreCompileInputs.cache
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\API_RestFull.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\API_RestFull.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\API_RestFull.dll
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\refint\API_RestFull.dll
+C:\Users\anton\source\repos\API_RestFull\obj\Debug\net5.0\API_RestFull.pdb

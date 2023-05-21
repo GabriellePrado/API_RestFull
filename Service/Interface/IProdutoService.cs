@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace API_RestFull.Service.Interface
 {
-    public class IProdutoService
+    public interface IProdutoService
     {
         ProdutoVO Create(ProdutoVO produto);
         ProdutoVO FindByID(int id);
