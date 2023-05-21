@@ -9,61 +9,61 @@ namespace API_Calculadora.Controllers
     [ApiVersion("1")]
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
-    public class PersonController : ControllerBase
+    public class ClienteController : ControllerBase
     {
 
-        private readonly ILogger<PersonController> _logger;
-        private IPersonService _personService;
+        private readonly ILogger<ClienteController> _logger;
+        private IClienteService _clienteService;
 
-        public PersonController(ILogger<PersonController> logger, IPersonService personService)
+        public ClienteController(ILogger<ClienteController> logger, IClienteService ClienteService)
         {
             _logger = logger;
-            _personService = personService;
+            _clienteService = ClienteService;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
 
-            return Ok(_personService.FindAll());
+            return Ok(_clienteService.FindAll());
         }
 
         [HttpGet("{Id}")]
         public IActionResult Get(int Id)
         {
-            var person = _personService.FindByID(Id);
-            if (person != null)
+            var Cliente = _clienteService.FindByID(Id);
+            if (Cliente != null)
             {
-                return Ok(person);
+                return Ok(Cliente);
             }
             return BadRequest("ID inválido");
         }
 
         //Create
         [HttpPost]
-        public IActionResult Post([FromBody] PersonVO person)
+        public IActionResult Post([FromBody] ClienteVO Cliente)
         {
-            if (person == null)
+            if (Cliente == null)
             {
                 return NotFound();
             }
-            return Ok(_personService.Create(person));
+            return Ok(_clienteService.Create(Cliente));
         }
         //Update
         [HttpPut]
-        public IActionResult Put([FromBody] PersonVO person)
+        public IActionResult Put([FromBody] ClienteVO Cliente)
         {
-            if (person == null)
+            if (Cliente == null)
             {
                 return NotFound();
             }
-            return Ok(_personService.Update(person));
+            return Ok(_clienteService.Update(Cliente));
         }
 
         [HttpDelete("{Id}")]
         public IActionResult Delete(int id)
         {
-                _personService.Delete(id);
+                _clienteService.Delete(id);
                 return NoContent();
         }
     }

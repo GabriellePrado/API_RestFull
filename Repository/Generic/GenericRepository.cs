@@ -51,8 +51,8 @@ namespace API_RestFull.Repository.Generic
 
         public List<T> FindAll()
         {
-            return dataset.ToList();
-
+           var teste = dataset.ToList();
+            return teste;
         }
         public T FindByID(int id)
         {
@@ -68,7 +68,7 @@ namespace API_RestFull.Repository.Generic
 
         public T Update(T item)
         {
-            var atualizacao = _context.Persons.SingleOrDefault(p => p.Id.Equals(item.Id));
+            var atualizacao = _context.Clientes.SingleOrDefault(p => p.Id.Equals(item.Id));
             if (atualizacao != null)
             {
                 try
@@ -88,7 +88,7 @@ namespace API_RestFull.Repository.Generic
             }
         }
 
-        public bool ValidaPerson(int id)
+        public bool ValidaCliente(int id)
         {
             bool validacao = dataset     .Any(p => p.Id.Equals(id));
             if (validacao == true)

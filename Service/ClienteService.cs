@@ -7,40 +7,40 @@ using System.Collections.Generic;
 
 namespace API_RestFull.Service
 {
-    public class PersonService : IPersonService
+    public class ClienteService : IClienteService
     {
-        private readonly IRepository<Person> _repository;
-        private readonly PersonConverter _converter;
+        private readonly IRepository<Cliente> _repository;
+        private readonly ClienteConverter _converter;
 
-        public PersonService(IRepository<Person> repository)
+        public ClienteService(IRepository<Cliente> repository)
         {
             _repository = repository;
-            _converter = new PersonConverter();
+            _converter = new ClienteConverter();
         }
-        public PersonVO Create(PersonVO person)
+        public ClienteVO Create(ClienteVO cliente)
         {
-            var personEntity = _converter.Parse(person);
-            personEntity = _repository.Create(personEntity);
-            return _converter.Parse(personEntity);
+            var clienteEntity = _converter.Parse(cliente);
+            clienteEntity = _repository.Create(clienteEntity);
+            return _converter.Parse(clienteEntity);
         }
 
-        public PersonVO Update(PersonVO person)
+        public ClienteVO Update(ClienteVO cliente)
         {
-            var personEntity = _converter.Parse(person);
-            personEntity = _repository.Update(personEntity);
-            return _converter.Parse(personEntity);
+            var clienteEntity = _converter.Parse(cliente);
+            clienteEntity = _repository.Update(clienteEntity);
+            return _converter.Parse(clienteEntity);
         }
         public void Delete(int id)
         {
             _repository.Delete(id);
         }
 
-        public List<PersonVO> FindAll()
+        public List<ClienteVO> FindAll()
         {
             return _converter.Parse(_repository.FindAll());
 
         }
-        public PersonVO FindByID(int id)
+        public ClienteVO FindByID(int id)
         {
             return _converter.Parse(_repository.FindByID(id));
         }

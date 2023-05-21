@@ -21,7 +21,7 @@ namespace API_RestFull
 {
     public class Startup
     {
-        public IWebHostEnvironment Environment { get; } 
+        public IWebHostEnvironment Environment { get; }
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
@@ -31,12 +31,12 @@ namespace API_RestFull
             Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
         }
 
-       
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-             
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -46,7 +46,7 @@ namespace API_RestFull
             //var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             //services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
 
-            
+
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<ConexaoSql>(
@@ -57,23 +57,25 @@ namespace API_RestFull
 
 
 
-            //if (Environment.IsDevelopment())
-            //{
-               
-            //    MigrateDatabase(connectionString);
-            //}
+            if (Environment.IsDevelopment())
+            {
+                MigrateDatabase(connectionString);
+            }
 
             services.AddMvc
                 (options =>
                 {
+                    //a aplicação irá respeitar o cabeçalho 'Accept' enviado pelo navegador com base em suas preferencias, se xml ou json.
                     options.RespectBrowserAcceptHeader = true;
+
+                    //Se for solicitado externamente que nossa API retorne um XML ou Json o código abaixo faz esse retorno.
                     options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml").ToString());
                     options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json").ToString());
                 }).AddXmlSerializerFormatters();
 
             services.AddApiVersioning();
 
-            services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IClienteService, ClienteService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 

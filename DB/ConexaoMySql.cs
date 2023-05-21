@@ -16,6 +16,6 @@ namespace API_RestFull.DB
         public ConexaoMySql(DbContextOptions<ConexaoMySql> options) : base(options)
         {
         }
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
     }
 }

@@ -1,48 +1,43 @@
 ﻿using API_RestFull.Data.Converter.Contract;
 using API_RestFull.Data.VO;
 using API_RestFull.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace API_RestFull.Data.Converter.Implementation
 {
-    public class PersonConverter : IParse<PersonVO, Person>, IParse<Person, PersonVO>
+    public class SacolaConverter : IParse<SacolaVO, Sacola>, IParse<Sacola, SacolaVO>
     {
         public int Id { get; private set; }
 
-        public Person Parse(PersonVO origem)
+        public Sacola Parse(SacolaVO origem)
         {
             if (origem == null) return null;
-            return new Person {
+            return new Sacola
+            {
                 Id = origem.Id,
-                Nome = origem.Nome,
-                Sobrenome = origem.Sobrenome,
-                Email = origem.Email,
-                Genero = origem.Genero
+                ItensSacola = origem.ItensSacola,
+                ValorTotal = origem.ValorTotal
             };
         }
 
-        public PersonVO Parse(Person origem)
+        public SacolaVO Parse(Sacola origem)
         {
             if (origem == null) return null;
-            return new PersonVO
+            return new SacolaVO
             {
                 Id = origem.Id,
-                Nome = origem.Nome,
-                Sobrenome = origem.Sobrenome,
-                Email = origem.Email,
-                Genero = origem.Genero
+                ItensSacola = origem.ItensSacola,
+                ValorTotal = origem.ValorTotal
             };
         }
-        public List<Person> Parse(List<PersonVO> origem)
+        public List<Sacola> Parse(List<SacolaVO> origem)
         {
             if (origem == null) return null;
             return origem.Select(item => Parse(item)).ToList();
         }
 
-        public List<PersonVO> Parse(List<Person> origem)
+        public List<SacolaVO> Parse(List<Sacola> origem)
         {
             if (origem == null) return null;
             return origem.Select(item => Parse(item)).ToList();
