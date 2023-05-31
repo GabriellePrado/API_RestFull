@@ -1,5 +1,6 @@
 ﻿using API_Calculadora.Controllers;
 using API_RestFull.Data.VO;
+using API_RestFull.Hypermedia.Filters;
 using API_RestFull.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,11 +21,13 @@ namespace API_RestFull.Controllers
             _produtoService = produtoService;
         }
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_produtoService.FindAll());
         }
         [HttpGet("{Id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int Id)
         {
             var Produto = _produtoService.FindByID(Id);
@@ -35,6 +38,7 @@ namespace API_RestFull.Controllers
             return BadRequest("ID inválido");
         }
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] ProdutoVO produto)
         {
             if (produto == null)
@@ -44,6 +48,7 @@ namespace API_RestFull.Controllers
             return Ok(_produtoService.Create(produto));
         }
         [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] ProdutoVO produto)
         {
             if (produto == null)
@@ -54,6 +59,7 @@ namespace API_RestFull.Controllers
         }
 
         [HttpDelete("{Id}")]
+        //no delete não precisa colocar o Filter
         public IActionResult Delete(int id)
         {
             _produtoService.Delete(id);

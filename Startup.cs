@@ -16,6 +16,8 @@ using API_RestFull.Service;
 using System.Net.Http.Headers;
 using Microsoft.Data.SqlClient;
 using System.Net;
+using API_RestFull.Hypermedia.Filters;
+using API_RestFull.Hypermedia.Enricher;
 
 namespace API_RestFull
 {
@@ -30,8 +32,6 @@ namespace API_RestFull
 
             Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
         }
-
-
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -73,6 +73,14 @@ namespace API_RestFull
                     options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json").ToString());
                 }).AddXmlSerializerFormatters();
 
+            var filterOptions = new HyperMediaFilterOptions();
+            filterOptions.ContentResponseEnricherList.Add(new ProdutoEnricher());
+            filterOptions.ContentResponseEnricherList.Add(new SacolaEnricher());
+            filterOptions.ContentResponseEnricherList.Add(new ClienteEnricher());
+
+            services.AddSingleton(filterOptions);
+
+            //Versionamento da API
             services.AddApiVersioning();
 
             services.AddScoped<IClienteService, ClienteService>();
@@ -101,6 +109,7 @@ namespace API_RestFull
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefaultAPI", "{controller=values}/{id?}");
             });
         }
         private void MigrateDatabase(string connection)

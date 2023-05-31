@@ -23,6 +23,8 @@
 /v17/
 /ProjectEvaluation/
 obj/Debug/net5.0/
+.vs/API/FileContentIndex/
+csproj.nuget.dgspec.json
 
 # Pacotes NuGet
 /packages/

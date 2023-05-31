@@ -5,7 +5,11 @@
         Alimentos = 1,
         Higiene = 2,
         Limpeza  = 3,
-        Frutas = 4,
-        Decoração = 5
+        Hortifruti = 4,
+        Decoracao = 5,
+        Padaria =6,
+        Congelados= 7,
+        Bebidas = 8,
+        Papelaria = 9
     }
 }

@@ -1,4 +1,5 @@
 ﻿using API_RestFull.Data.VO;
+using API_RestFull.Hypermedia.Filters;
 using API_RestFull.Model;
 using API_RestFull.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,7 @@ namespace API_Calculadora.Controllers
         }
 
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
 
@@ -29,6 +31,7 @@ namespace API_Calculadora.Controllers
         }
 
         [HttpGet("{Id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int Id)
         {
             var Cliente = _clienteService.FindByID(Id);
@@ -41,6 +44,7 @@ namespace API_Calculadora.Controllers
 
         //Create
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] ClienteVO Cliente)
         {
             if (Cliente == null)
@@ -51,6 +55,7 @@ namespace API_Calculadora.Controllers
         }
         //Update
         [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] ClienteVO Cliente)
         {
             if (Cliente == null)

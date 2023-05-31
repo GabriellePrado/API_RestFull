@@ -2556,18 +2556,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Tapioca.HATEOAS/1.0.4": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc.Core": "2.0.4"
-        },
-        "compile": {
-          "lib/netcoreapp2.0/Tapioca.HATEOAS.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/Tapioca.HATEOAS.dll": {}
-        }
       }
     }
   },
@@ -7704,18 +7692,6 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "Tapioca.HATEOAS/1.0.4": {
-      "sha512": "8hp6oNzJV8nbOl6eevAxo0pZsdYIFUng3Pyg0/re47p8e3d0cViG+qmBz3AayrO+CnZ8jqqrkkr264l/8P5QOw==",
-      "type": "package",
-      "path": "tapioca.hateoas/1.0.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netcoreapp2.0/Tapioca.HATEOAS.dll",
-        "tapioca.hateoas.1.0.4.nupkg.sha512",
-        "tapioca.hateoas.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -7728,8 +7704,7 @@
       "Serilog >= 2.10.0",
       "Serilog.AspNetCore >= 3.4.0",
       "Serilog.Sinks.Console >= 3.1.1",
-      "Swashbuckle.AspNetCore >= 6.2.3",
-      "Tapioca.HATEOAS >= 1.0.4"
+      "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
@@ -7815,10 +7790,6 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.2.3, )"
-          },
-          "Tapioca.HATEOAS": {
-            "target": "Package",
-            "version": "[1.0.4, )"
           }
         },
         "imports": [

@@ -1,5 +1,6 @@
 ﻿using API_Calculadora.Controllers;
 using API_RestFull.Data.VO;
+using API_RestFull.Hypermedia.Filters;
 using API_RestFull.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -21,6 +22,7 @@ namespace API_RestFull.Controllers
         }
 
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
 
@@ -28,6 +30,7 @@ namespace API_RestFull.Controllers
         }
 
         [HttpGet("{Id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int Id)
         {
             var Sacola = _sacolaService.FindByID(Id);
@@ -40,6 +43,7 @@ namespace API_RestFull.Controllers
 
         //Create
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] SacolaVO sacola)
         {
             if (sacola == null)
@@ -50,6 +54,7 @@ namespace API_RestFull.Controllers
         }
         //Update
         [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] SacolaVO sacola)
         {
             if (sacola == null)
@@ -60,6 +65,7 @@ namespace API_RestFull.Controllers
         }
 
         [HttpDelete("{Id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Delete(int id)
         {
             _sacolaService.Delete(id);
@@ -67,4 +73,4 @@ namespace API_RestFull.Controllers
         }
     }
 }
-}
+

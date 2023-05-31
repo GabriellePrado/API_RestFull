@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tXia2jpDTTTxJLLcsyP42Jq2GPDDJgarMEB1dF5M0TsNm2vi4eRfTldSFzLOT2reMu7pFPUVbow+q1d62k+aKw==",
+  "dgSpecHash": "5JC+qF3ah5HFojMh8qSBL0KZTUybLWGTZqq7ngY5PaEuUz60rCryG/NCwLIzi8cDBtiZmTsvOjYpkWTOJ3N0og==",
   "success": true,
   "projectFilePath": "C:\\Users\\anton\\source\\repos\\API_RestFull\\API_RestFull.csproj",
   "expectedPackageFiles": [
@@ -149,8 +149,7 @@
     "C:\\Users\\anton\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\anton\\.nuget\\packages\\tapioca.hateoas\\1.0.4\\tapioca.hateoas.1.0.4.nupkg.sha512"
+    "C:\\Users\\anton\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
