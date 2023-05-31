@@ -23,8 +23,13 @@
 /v17/
 /ProjectEvaluation/
 obj/Debug/net5.0/
+<<<<<<< HEAD
 .vs/API/FileContentIndex/
 csproj.nuget.dgspec.json
+=======
+obj/
+FileContentIndex/
+>>>>>>> 5eb55f50cf827aa06db17702ea10191ca3182ff8
 
 # Pacotes NuGet
 /packages/
